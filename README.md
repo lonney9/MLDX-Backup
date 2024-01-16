@@ -1,4 +1,5 @@
 # MacLoggerDX Backup Script
+
 Script to make backups of the [MacLoggerDX](https://dogparksoftware.com/MacLoggerDX.html) Documents/MLDX_Logs folder.
 
 - Gracefully closes MLDX
@@ -32,3 +33,13 @@ ln -s MLDX_Logs.nosync MLDX_Logs
 ```
 
 iCloud Drive will ignore folder names ending in .nosync, while it will sync the symbolic link it self, it doesn't sync the files/folders the link points to. Since MLDX_Logs would no longer be synced in this situation, the script can be run from a folder under Documents (e.g. MLDX_Backup) to create a backup that will get synced to iCloud Drive.
+
+### Restarting iCloud Sync Service
+
+If iCloud drive gets stuck on syncing files (when it should not) I found the iCloud drive syncing service can be restarted simply with:
+
+```bash
+killall bird
+```
+
+The service will automatically restart, and with-in a few momnets the files should sync.
