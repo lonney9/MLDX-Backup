@@ -29,7 +29,7 @@ With MLDX closed, open terminal and run:
 ```bash
 cd ~/Documents
 mv MLDX_Logs ../MLDX_Logs
-ln -s MLDX_Logs.nosync MLDX_Logs
+ln -s ../MLDX_Logs MLDX_Logs
 ```
 
 The script can be run from a folder under Documents (e.g. MLDX_Backup) to create a backup that will get synced to iCloud Drive.
