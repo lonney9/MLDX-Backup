@@ -22,17 +22,17 @@ The [MacLoggerDX manual FAQ section](https://www.dogparksoftware.com/MacLoggerDX
 
 If (like me) you use iCloud to sync the Documents and Desktop folders between several machines, MLDX places locks on some files which can cause problems with iCloud Drive syncing.
 
-The work around I found was to rename MLDX_Logs to MLDX_Logs.nosync then create a symbolic link to it with the original folder name.
+The work around I found was to move MLDX_Logs back one level to the /Users/username level, and create a symbolic link to it.
 
 With MLDX closed, open terminal and run:
 
 ```bash
 cd ~/Documents
-mv MLDX_Logs MLDX_Logs.nosync
+mv MLDX_Logs ../MLDX_Logs
 ln -s MLDX_Logs.nosync MLDX_Logs
 ```
 
-iCloud Drive will ignore folder names ending in .nosync, while it will sync the symbolic link it self, it doesn't sync the files/folders the link points to. Since MLDX_Logs would no longer be synced in this situation, the script can be run from a folder under Documents (e.g. MLDX_Backup) to create a backup that will get synced to iCloud Drive.
+The script can be run from a folder under Documents (e.g. MLDX_Backup) to create a backup that will get synced to iCloud Drive.
 
 ### Restarting iCloud Sync Service
 
